@@ -9,17 +9,20 @@ const timerDom = document.getElementById('timer');
 
 let secondi = 30;
 
+const quantityOfNumber = 5;
+
 const allCasualNumber = [];
 
 const allPlayerNumber = [];
 
+const wrongNumber = [];
+
 const clock = setInterval(function(){
     if(secondi == 0){
         clearInterval(clock);
-        containerDom = `Tempo Scaduto!`;
     }else{
-        timerDom.innerHTML=`Hai ancora ${secondi} secondi per memorizzare i numeri.`
-        secondi--
+        timerDom.innerHTML=`Hai ancora ${secondi} secondi per memorizzare i numeri.`;
+        secondi--;
     }
 },1000);
 
@@ -36,15 +39,22 @@ setTimeout(startAsk,30200);
 
 function startAsk(){
 
-    for(let i = 0 ; i < 5; i++){
+    for(let i = 0 ; i < quantityOfNumber; i++){
         askNumber = parseInt(prompt('inserisci uno alla volta tutti i numeri che ricordi'));
 
         if(allCasualNumber.includes(askNumber)){
             allPlayerNumber.push(askNumber);
+        }else{
+            wrongNumber.push(askNumber);
         }
     }
 
-    containerDom.innerHTML=`i numeri che hai indovinato sono:${allPlayerNumber} su un totale di 5 numeri! Complimenti`
+    containerDom.innerHTML=`I numeri che hai indovinato sono:${allPlayerNumber} su un totale di ${quantityOfNumber} numeri!`;
+
+    if(wrongNumber.length > 0){
+        containerDom.innerHTML+=`<p>E i numeri che hai inserito sbagliando sono ${wrongNumber}</p>`;
+    }
+
     console.log(allPlayerNumber);
     
 
@@ -58,7 +68,7 @@ function deleteDom(){
 
 function numberGenerator(){
 
-    while(allCasualNumber.length < 5){
+    while(allCasualNumber.length < quantityOfNumber){
 
         let number = Math.floor(Math.random() * 5) + 1;
 
