@@ -5,20 +5,33 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 */
 const containerDom = document.getElementById('container');
 
+const timerDom = document.getElementById('timer');
+
+let secondi = 30;
+
 const allCasualNumber = [];
 
 const allPlayerNumber = [];
+
+const clock = setInterval(function(){
+    if(secondi == 0){
+        clearInterval(clock);
+        containerDom = `Tempo Scaduto!`;
+    }else{
+        timerDom.innerHTML=`Hai ancora ${secondi} secondi per memorizzare i numeri.`
+        secondi--
+    }
+},1000);
 
 const numberSelect = numberGenerator();
 
 console.log(allCasualNumber);
 
-
 containerDom.innerHTML=`I tuoi numeri sono:${allCasualNumber}`;
 
-setTimeout(deleteDom,3000);
+setTimeout(deleteDom,30000);
 
-setTimeout(startAsk,3200);
+setTimeout(startAsk,30200);
 
 
 function startAsk(){
@@ -38,6 +51,7 @@ function startAsk(){
 }
 
 function deleteDom(){
+    timerDom.innerHTML="";
     containerDom.innerHTML="";
 }
 
