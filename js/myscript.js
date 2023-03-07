@@ -21,16 +21,19 @@ setTimeout(deleteDom,3000);
 setTimeout(startAsk,3200);
 
 
-
-
 function startAsk(){
 
     for(let i = 0 ; i < 5; i++){
-        askNumber = parseInt(prompt('quali dei numeri ti ricordi?'));
-        allPlayerNumber.push(askNumber);
+        askNumber = parseInt(prompt('inserisci uno alla volta tutti i numeri che ricordi'));
+
+        if(allCasualNumber.includes(askNumber)){
+            allPlayerNumber.push(askNumber);
+        }
     }
 
+    containerDom.innerHTML=`i numeri che hai indovinato sono:${allPlayerNumber} su un totale di 5 numeri! Complimenti`
     console.log(allPlayerNumber);
+    
 
 }
 
