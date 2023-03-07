@@ -1,0 +1,33 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url(https://images.crazygames.com/games/what-simon-says/thumb-1553945316928.png?auto=format%2Ccompress&q=45&cs=strip&ch=DPR&w=1200&h=630&fit=crop);
+    background-size: cover;
+}
+
+header,main{
+    text-align: center;
+    width: 100%;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header{
+    height: 20vh;
+}
+
+main>div,h1{
+    background-color: white;
+    border-radius: 30px;
+    width: 50%;
+}
+
+main{
+    height: 80vh;
+}
