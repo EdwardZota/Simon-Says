@@ -70,7 +70,7 @@ function numberGenerator(){
 
     while(allCasualNumber.length < quantityOfNumber){
 
-        let number = Math.floor(Math.random() * 5) + 1;
+        let number = Math.floor(Math.random() * quantityOfNumber) + 1;
 
         if(!allCasualNumber.includes(number)){
             allCasualNumber.push(number);  
